@@ -1,0 +1,173 @@
+<!-- New home page 2.0 -->
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'crm/base.html' %}
+{% load static %}
+
+<!-- title  -->
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="page-container">
+            <h2 class="top-menu">Welcome {{ user.username }}</h2>
+        </div>
+    {% else %}
+        <p></p>
+    {% endif %}
+    <div class="content container">
+
+        <head>
+        <title>CSS Template</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="crm/static/css/w3.css" />
+
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <style>
+          body,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-family: "Montserrat", sans-serif;
+          }
+          .w3-row-padding img {
+            margin-bottom: 12px;
+          }
+          /* Set the width of the sidebar to 120px */
+          .w3-sidebar {
+            width: 120px;
+            background: #222;
+          }
+          #main {
+            margin-left: 120px;
+          }
+          /* Remove margins from "page content" on small screens */
+          @media only screen and (max-width: 600px) {
+            #main {
+              margin-left: 0;
+            }
+          }
+        </style>
+    </head>
+
+        <body class="w3-black">
+        <div class="w3-padding-large" id="main">
+          <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+            <h1 class="w3-jumbo">
+              <span class="w3-hide-small">Maverick Gram ©</span>
+            </h1>
+            <p>
+              Maverick Gram, we are here to make your campus life little easier.
+            </p>
+            <img src="{% static "images/Mavericks.jpeg" %}" class="w3-image" width="800" height="1000" alt="Mavericks">
+          </header>
+<!-- Event  -->
+          <div class="w3-padding-64 w3-content" id="events">
+            <h2 class="w3-text-light-grey">Events</h2>
+            <hr style="width: 200px" class="w3-opacity" />
+              <!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  -->
+            <div class="card-body">
+                 <p><a class="btn btn-info" href="{% url 'crm:event_list' %}"
+                      role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half">
+            <img src="{% static "images/bowling.jpeg" %}" class="w3-image" style="width: 100%"  alt="bowling_photo">
+            <img src="{% static "images/dodgeball.jpeg" %}" class="w3-image" style="width: 100%"alt="dodgeball_photo">
+          </div>
+              <div class="w3-half">
+                <img src="{% static "images/movie.jpeg" %}" style="width: 100%" alt="movie_photo">
+                <img src="{% static "images/basketball.png" %}" style="width: 100%" alt="basketball_photo">
+                <img src="{% static "images/trivia.png" %}" style="width: 100%" alt="trivia_photo">
+              </div>
+            </div>
+          </div>
+<!-- club  -->
+          <div class="w3-padding-64 w3-content w3-text-grey" id="clubs">
+            <h2 class="w3-text-light-grey">Clubs</h2>
+            <hr style="width: 200px" class="w3-opacity" />
+
+            <div class="card-body">
+                 <p><a class="btn btn-info" href="{% url 'crm:club_list' %}"
+                      role="button">View details &raquo;</a></p>
+            </div>
+
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half">
+                <img src="{% static "images/arthistory.png" %}" style="width: 100%" alt="arthistory">
+                <img src="{% static "images/bookclub.jpeg" %}" style="width: 100%" alt="bookclub">
+                <img src="{% static "images/chess.jpeg" %}" style="width: 100%" alt="chess">
+              </div>
+
+              <div class="w3-half">
+                <img src="{% static "images/math.jpeg" %}" style="width: 100%" alt="math">
+                <img src="{% static "images/photo.jpeg" %}" style="width: 100%" alt="photo">
+                <img src="{% static "images/speech.jpeg" %}" style="width: 100%" alt="speech">
+                <img src="{% static "images/Sculpture.jpeg" %}" style="width: 100%" alt="Sculpture">
+              </div>
+            </div>
+          </div>
+
+<!-- meals -->
+          <div class="w3-padding-64 w3-content" id="meal">
+            <h2 class="w3-text-light-grey">Meals</h2>
+            <hr style="width: 200px" class="w3-opacity" />
+            <div class="card-body">
+                 <p><a class="btn btn-info" href="{% url 'crm:meal_list' %}"
+                      role="button">View details &raquo;</a></p>
+            </div>
+            <div class="w3-row-padding" style="margin: 0 -16px">
+              <div class="w3-half">
+                <img src="{% static "images/1.jpeg" %}" class="w3-image" style="width: 100%"  alt="food_1_photo">
+                <img src="{% static "images/2.jpeg" %}" class="w3-image" style="width: 100%"alt="food_2_photo">
+                <img src="{% static "images/6.jpeg" %}" style="width: 100%" alt="food_6_photo">
+              </div>
+              <div class="w3-half">
+                <img src="{% static "images/3.jpeg" %}" style="width: 100%" alt="food_3_photo">
+                <img src="{% static "images/4.jpeg" %}" style="width: 100%" alt="food_4_photo">
+                <img src="{% static "images/5.jpeg" %}" style="width: 100%" alt="food_5_photo">
+              </div>
+            </div>
+          </div>
+
+          <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+            <h2 class="w3-text-light-grey">Who are we?</h2>
+            <hr style="width: 200px" class="w3-opacity" />
+            <img src="{% static "images/bull.png" %}" class="w3-left w3-circle w3-margin-right" style="width: 80px" alt="Avatar">
+            <p><span class="w3-large w3-margin-right">Maverick Gram©</span></p>
+            <p>We design your website</p>
+            <br />
+            <p>
+              MAVERICK GRAM application allowing all featured clubs, host to post
+              announcements, club events and news on this one single platform which
+              all students would have the access to. This program allows all users
+              to see what's going on campus without having to search for each school
+              related events individually on social media.
+            </p>
+          </div>
+          <!-- Footer -->
+          <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <p class="w3-medium">Maverick Gram 2022©</p>
+          </footer>
+        </div>
+    </body>
+    </div>
+{% endblock %}
+</html>

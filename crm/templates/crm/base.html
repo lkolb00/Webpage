@@ -1,0 +1,93 @@
+<!-- New base page  -->
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-dark" href=""> Maverick Gram
+        </a>
+
+        <!-- Button to collapse Navbar Button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#myNavbar" aria-controls="myNavbar">
+            Toggle Navigation
+        </button>
+
+
+    </div>
+<!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  --><!-- not sure  -->
+
+     <!-- Dark background with white text --> <!-- Dark background with white text --> <!-- Dark background with white text --> <!-- Dark background with white text -->
+     <nav class="navbar navbar-expand-md bg-dark navbar-light" id="myNavbar">
+        <!--Display navigation options left-justified in navbar -->
+        <ul class="navbar-nav mr-auto">
+            <li class="navbar-brand"></li>
+
+            <li class="nav-item active">
+                <a href="{% url 'crm:home' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-home w3-xxlarge"> </i><p>HOME</p> </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#events" href="{% url 'crm:event_list' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-newspaper-o w3-xxlarge"></i> <p>Events</p> </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#clubs" href="{% url 'crm:club_list' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-users w3-xxlarge"></i> <p>Clubs</p> </a>
+            </li>
+
+
+            <li class="nav-item active">
+                <a href="#meal" href="{% url 'crm:meal_list' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-github-alt w3-xxlarge"></i> </i><p>Meals</p> </a>
+            </li>
+
+            <li class="nav-item active">
+                <a href="{% url 'crm:student_list' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-vcard w3-xxlarge"> </i><p>Students</p> </a>
+            </li>
+
+        </ul>
+
+        <!--Display Login/Logout right-justified in navbar -->
+        <ul class="nav navbar-nav ml-auto">
+        <!--Display Register -->
+            <li class="nav-item active">
+                <a href="{% url 'crm:register' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-pencil w3-xxlarge"></i> <p>Register</p> </a>
+            </li>
+
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-sign-in w3-xxlarge"> </i><p>Logout</p> </a>
+                </li>
+
+            {% else %}
+                <li class="nav-item active">
+                    <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black"> <i class="fa fa-sign-in w3-xxlarge"> </i><p>Login</p> </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+</div>
+
+<body id="app-layout">
+<div class="row">
+    <div class="col-md-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</div>
+</body>
+
+</html>
