@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "django-insecure-)35gqeqk*r0a903l$en-6v$s6*ew$m#9)t&0^d8%+x*$0r@b(p"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'crm.apps.CrmConfig',
-    'crispy_forms',
+    "crispy_forms",
     'django.contrib.humanize',
     'students.apps.StudentsConfig',
 ]
@@ -125,7 +125,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
 
 
 #EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

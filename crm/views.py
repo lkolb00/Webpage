@@ -1,4 +1,5 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
@@ -28,13 +29,13 @@ def home(request):
 
 
 
-@login_required
+@staff_member_required
 def student_list(request):
     student = Student.objects.filter()
     return render(request, 'crm/student_list.html',
                   {'students': student})
 
-@login_required
+@staff_member_required
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == "POST":
@@ -51,7 +52,7 @@ def student_edit(request, pk):
         # edit
         form = StudentForm(instance=student)
     return render(request, 'crm/student_edit.html', {'form': form})
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def student_delete(request, pk):
     student = get_object_or_404(Student, pk=pk)
     student.delete()
@@ -62,7 +63,7 @@ def event_list(request):
     return render(request, 'crm/event_list.html',
                   {'events': event})
 
-@login_required
+@staff_member_required
 def event_edit(request, pk):
     event = get_object_or_404(Event, pk=pk)
     if request.method == "POST":
@@ -79,7 +80,7 @@ def event_edit(request, pk):
         # edit
         form = EventForm(instance=event)
     return render(request, 'crm/event_edit.html', {'form': form})
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def event_delete(request, pk):
     event = get_object_or_404(Event, pk=pk)
     event.delete()
@@ -94,7 +95,7 @@ def club_list(request):
     return render(request, 'crm/club_list.html',
                   {'clubs': club})
 
-@login_required
+@staff_member_required
 def club_edit(request, pk):
     club = get_object_or_404(Club, pk=pk)
     if request.method == "POST":
@@ -111,7 +112,7 @@ def club_edit(request, pk):
         # edit
         form = ClubForm(instance=club)
     return render(request, 'crm/club_edit.html', {'form': form})
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def club_delete(request, pk):
     club = get_object_or_404(Club, pk=pk)
     club.delete()
@@ -124,7 +125,7 @@ def meal_list(request):
                   {'meals': meal})
 
 
-@login_required
+@staff_member_required
 def meal_edit(request, pk):
     meal = get_object_or_404(Meal, pk=pk)
     if request.method == "POST":
@@ -142,7 +143,7 @@ def meal_edit(request, pk):
         form = MealForm(instance=meal)
     return render(request, 'crm/meal_edit.html', {'form': form})
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def meal_delete(request, pk):
     meal = get_object_or_404(Meal, pk=pk)
     meal.delete()
